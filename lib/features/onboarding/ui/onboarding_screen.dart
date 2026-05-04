@@ -1,3 +1,4 @@
+import 'package:doc_appointment_app/features/onboarding/ui/widgets/doc_logo_and_name.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(body: Center(child: Text('Onboarding Screen'))),
+      child: Scaffold(body: Column(children: [DocLogoAndName()])),
     );
   }
 }
