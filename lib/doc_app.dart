@@ -13,17 +13,17 @@ class DocApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
+      splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
           title: 'Doctor Appointment App',
           debugShowCheckedModeBanner: false,
-          onGenerateRoute: appRouter.generateRoute,
           theme: ThemeData(
             primaryColor: ColorsManager.mainBlue,
             scaffoldBackgroundColor: Colors.white,
           ),
           initialRoute: Routes.onBoardingScreen,
-          // onGenerateInitialRoutes: appRouter.generateRoute,
+          onGenerateRoute: appRouter.generateRoute,
         );
       },
     );
