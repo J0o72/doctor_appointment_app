@@ -1,0 +1,22 @@
+import 'package:doc_appointment_app/core/theming/text_styles.dart';
+import 'package:flutter/material.dart';
+
+class AlreadyHaveAccountOrSignUp extends StatelessWidget {
+  const AlreadyHaveAccountOrSignUp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'Already have an account? ',
+            style: TextStyles.font14DarkBlueRegular,
+          ),
+          TextSpan(text: ' Sign Up', style: TextStyles.font14BlueSemiBold),
+        ],
+      ),
+    );
+  }
+}

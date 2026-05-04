@@ -1,5 +1,6 @@
 import 'package:doc_appointment_app/core/helpers/app_regex.dart';
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
+import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_form_field.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/password_validation.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +73,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             ),
           ),
           verticalSpace(20.h),
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            child: Text(
+              'Forgot Password?',
+              style: TextStyles.font14BlueSemiBold,
+            ),
+          ),
+          verticalSpace(5.h),
 
           PasswordValidation(
             hasEightCharacters: hasEightCharacters,
