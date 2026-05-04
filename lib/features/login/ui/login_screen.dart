@@ -1,5 +1,6 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
+import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,6 +35,13 @@ class LoginScreen extends StatelessWidget {
                       'Forgot Password?',
                       style: TextStyles.font12BlueRegular,
                     ),
+                  ),
+                  verticalSpace(20.h),
+                  AppTextButton(
+                    text: "Login",
+                    onPressed: () {
+                      // context.pushNamed(Routes.loginScreen);
+                    },
                   ),
                 ],
               ),
