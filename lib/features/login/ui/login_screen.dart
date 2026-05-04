@@ -2,6 +2,7 @@ import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_form_field.dart';
+import 'package:doc_appointment_app/features/login/ui/widgets/email_and_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,9 +26,7 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyles.font14GrayRegular,
                   ),
                   verticalSpace(40.h),
-                  AppTextFormField(hintText: 'Email Address'),
-                  verticalSpace(20.h),
-                  AppTextFormField(hintText: 'Password'),
+                  EmailAndPassword(),
                   verticalSpace(20.h),
                   Align(
                     alignment: AlignmentDirectional.centerEnd,
