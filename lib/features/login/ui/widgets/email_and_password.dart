@@ -76,7 +76,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             controller: passwordController,
             hintText: 'Password',
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null ||
+                  value.isEmpty ||
+                  hasEightCharacters == false ||
+                  hasLowerCase == false ||
+                  hasUpperCase == false ||
+                  hasNumber == false ||
+                  hasSpecialCharacter == false) {
                 return 'Please enter your password';
               }
             },
