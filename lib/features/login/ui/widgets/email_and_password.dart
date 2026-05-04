@@ -7,15 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+  const EmailAndPassword({super.key, this.formKey});
+  final GlobalKey<FormState>? formKey;
 
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
-  final formKey = GlobalKey<FormState>();
   late TextEditingController passwordController;
+  late TextEditingController emailController;
 
   bool isObscureText = true;
   bool hasEightCharacters = false;
@@ -27,22 +28,40 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   void initState() {
     passwordController = TextEditingController();
+    emailController = TextEditingController();
     super.initState();
+    setUpPasswordControllerListener();
+  }
+
+  void setUpPasswordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasEightCharacters = AppRegex.hasMinLength(passwordController.text);
+        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasSpecialCharacter = AppRegex.hasSpecialCharacter(
+          passwordController.text,
+        );
+      });
+    });
   }
 
   @override
   void dispose() {
     passwordController.dispose();
+    emailController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: widget.formKey,
       child: Column(
         children: [
           AppTextFormField(
+            controller: emailController,
             hintText: 'Email Address',
             validator: (value) {
               if (value == null ||
@@ -54,6 +73,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(20.h),
           AppTextFormField(
+            controller: passwordController,
             hintText: 'Password',
             validator: (value) {
               if (value == null || value.isEmpty) {
