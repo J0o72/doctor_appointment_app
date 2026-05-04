@@ -23,7 +23,7 @@ class DoctorImageAndText extends StatelessWidget {
           child: Image.asset("assets/images/onboarding_doctor.png"),
         ),
         Positioned(
-          bottom: 30.h,
+          bottom: 20.h,
           right: 0.w,
           left: 0.w,
           child: Text(
