@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 20.h, left: 20.h, top: 40.h),
             child: Form(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text('Welcome Back', style: TextStyles.font24BBlueBold),
                   Text(
@@ -30,18 +30,55 @@ class LoginScreen extends StatelessWidget {
                   AppTextFormField(hintText: 'Password'),
                   verticalSpace(20.h),
                   Align(
-                    alignment: Alignment.centerRight,
+                    alignment: AlignmentDirectional.centerEnd,
                     child: Text(
                       'Forgot Password?',
-                      style: TextStyles.font12BlueRegular,
+                      style: TextStyles.font14BlueSemiBold,
+                    ),
+                  ),
+                  verticalSpace(40.h),
+                  AppTextButton(text: "Login", onPressed: () {}),
+                  verticalSpace(40.h),
+
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text:
+                              'By logging, you agree to our   and PrivacyPolicy',
+                          style: TextStyles.font14LightGrayRegular,
+                        ),
+                        TextSpan(
+                          text: ' Terms & Conditions',
+                          style: TextStyles.font14DarkBlueRegular,
+                        ),
+                        TextSpan(
+                          text: ' and',
+                          style: TextStyles.font14LightGrayRegular,
+                        ),
+                        TextSpan(
+                          text: ' Privacy Policy',
+                          style: TextStyles.font14DarkBlueRegular,
+                        ),
+                      ],
                     ),
                   ),
                   verticalSpace(20.h),
-                  AppTextButton(
-                    text: "Login",
-                    onPressed: () {
-                      // context.pushNamed(Routes.loginScreen);
-                    },
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Already have an account? ',
+                          style: TextStyles.font14DarkBlueRegular,
+                        ),
+                        TextSpan(
+                          text: ' Sign Up',
+                          style: TextStyles.font14BlueSemiBold,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

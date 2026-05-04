@@ -4,7 +4,6 @@ import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
 import 'package:doc_appointment_app/features/onboarding/ui/widgets/doc_logo_and_name.dart';
 import 'package:doc_appointment_app/features/onboarding/ui/widgets/doctor_image_and_text.dart';
-import 'package:doc_appointment_app/features/onboarding/ui/widgets/get_start_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
