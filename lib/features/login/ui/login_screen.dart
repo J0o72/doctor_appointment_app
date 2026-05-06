@@ -5,6 +5,7 @@ import 'package:doc_appointment_app/features/login/data/models/login_request_bod
 import 'package:doc_appointment_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/dont_have_account.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/email_and_password.dart';
+import 'package:doc_appointment_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/terms_and_condition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,6 +47,7 @@ class LoginScreen extends StatelessWidget {
                 TermsAndConditions(),
                 verticalSpace(20.h),
                 DontHaveAccountOrSignUp(),
+                LoginBlocListener(),
               ],
             ),
           ),
