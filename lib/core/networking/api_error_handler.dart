@@ -3,7 +3,6 @@
 import 'package:dio/dio.dart';
 import 'package:doc_appointment_app/core/networking/api_errors_constants.dart';
 
-import 'api_constants.dart';
 import 'api_error_model.dart';
 
 enum DataSource {
