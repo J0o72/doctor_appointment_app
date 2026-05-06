@@ -1,16 +1,16 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
+import 'package:doc_appointment_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/dont_have_account.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/email_and_password.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/terms_and_condition.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-  final formKey = GlobalKey<FormState>();
-
+  const LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,20 +27,24 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyles.font14GrayRegular,
                 ),
                 verticalSpace(30.h),
-                EmailAndPassword(formKey: formKey),
+                EmailAndPassword(formKey: context.read<LoginCubit>().formKey),
                 verticalSpace(30.h),
                 AppTextButton(
                   text: "Login",
                   onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      print('Login successful');
+                    if (context
+                        .read<LoginCubit>()
+                        .formKey
+                        .currentState!
+                        .validate()) {
+                      // print('Login successful');
                     }
                   },
                 ),
                 verticalSpace(30.h),
                 TermsAndConditions(),
                 verticalSpace(20.h),
-                AlreadyHaveAccountOrSignUp(),
+                DontHaveAccountOrSignUp(),
               ],
             ),
           ),

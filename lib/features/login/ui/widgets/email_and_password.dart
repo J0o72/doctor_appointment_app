@@ -2,13 +2,14 @@ import 'package:doc_appointment_app/core/helpers/app_regex.dart';
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_form_field.dart';
+import 'package:doc_appointment_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/password_validation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key, this.formKey});
-  final GlobalKey<FormState>? formKey;
+  const EmailAndPassword({super.key, required formKey});
 
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
@@ -27,8 +28,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   void initState() {
-    passwordController = TextEditingController();
-    emailController = TextEditingController();
+    passwordController = context.read<LoginCubit>().passwordController;
+    // emailController = TextEditingController();
     super.initState();
     setUpPasswordControllerListener();
   }
@@ -57,11 +58,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
-            controller: emailController,
+            controller: context.read<LoginCubit>().emailController,
             hintText: 'Email Address',
             validator: (value) {
               if (value == null ||
@@ -73,7 +74,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(20.h),
           AppTextFormField(
-            controller: passwordController,
+            controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             validator: (value) {
               if (value == null ||

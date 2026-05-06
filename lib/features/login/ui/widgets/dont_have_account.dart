@@ -1,8 +1,8 @@
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class AlreadyHaveAccountOrSignUp extends StatelessWidget {
-  const AlreadyHaveAccountOrSignUp({super.key});
+class DontHaveAccountOrSignUp extends StatelessWidget {
+  const DontHaveAccountOrSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
