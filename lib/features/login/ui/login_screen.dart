@@ -1,6 +1,7 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
+import 'package:doc_appointment_app/features/login/data/models/login_request_body.dart';
 import 'package:doc_appointment_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/dont_have_account.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/email_and_password.dart';
@@ -37,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                         .formKey
                         .currentState!
                         .validate()) {
-                      // print('Login successful');
+                      validateThenDoLogin(context);
                     }
                   },
                 ),
@@ -51,5 +52,16 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates(
+        LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ),
+      );
+    }
   }
 }

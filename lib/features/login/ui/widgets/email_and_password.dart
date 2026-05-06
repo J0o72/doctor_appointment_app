@@ -79,12 +79,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
-                  hasEightCharacters == false ||
-                  hasLowerCase == false ||
-                  hasUpperCase == false ||
-                  hasNumber == false ||
-                  hasSpecialCharacter == false) {
-                return 'Please enter your password';
+                  !AppRegex.hasMinLength(value) ||
+                  !AppRegex.hasUpperCase(value) ||
+                  !AppRegex.hasLowerCase(value) ||
+                  !AppRegex.hasNumber(value) ||
+                  !AppRegex.hasSpecialCharacter(value)) {
+                return 'Please enter a valid password';
               }
             },
             isObscureText: isObscureText,
