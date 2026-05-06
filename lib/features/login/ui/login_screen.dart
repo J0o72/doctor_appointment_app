@@ -1,7 +1,7 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/core/widgets/app_text_button.dart';
-import 'package:doc_appointment_app/features/login/ui/widgets/already_have_account_or_sign_up.dart';
+import 'package:doc_appointment_app/features/login/ui/widgets/dont_have_account.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/email_and_password.dart';
 import 'package:doc_appointment_app/features/login/ui/widgets/terms_and_condition.dart';
 import 'package:flutter/material.dart';
