@@ -25,19 +25,29 @@ class LoginBlocListener extends StatelessWidget {
                 child: CircularProgressIndicator(color: ColorsManager.mainBlue),
               ),
             );
+            context.pop();
           },
           failure: (error) {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 icon: Icon(Icons.error, color: Colors.red),
-                content: Text(error, style: TextStyles.font15DarkBlueMedium),
+                content: Text(
+                  error,
+                  style: TextStyles.font15DarkBlueMedium,
+                  textAlign: TextAlign.center,
+                ),
                 actions: [
                   TextButton(
                     onPressed: () {
                       context.pop();
                     },
-                    child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+                    child: Center(
+                      child: Text(
+                        'Got it',
+                        style: TextStyles.font14BlueSemiBold,
+                      ),
+                    ),
                   ),
                 ],
               ),
