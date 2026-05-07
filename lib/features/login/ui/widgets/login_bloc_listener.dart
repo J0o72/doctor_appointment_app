@@ -1,7 +1,7 @@
+import 'package:doc_appointment_app/core/functions/show_dialog_error.dart';
+import 'package:doc_appointment_app/core/functions/show_dialog_loading.dart';
 import 'package:doc_appointment_app/core/helpers/extensions.dart';
 import 'package:doc_appointment_app/core/routing/routes.dart';
-import 'package:doc_appointment_app/core/theming/colors_manager.dart';
-import 'package:doc_appointment_app/core/theming/text_styles.dart';
 import 'package:doc_appointment_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:doc_appointment_app/features/login/logic/login_cubit/login_state.dart';
 import 'package:flutter/material.dart';
@@ -19,39 +19,11 @@ class LoginBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(color: ColorsManager.mainBlue),
-              ),
-            );
+            showDialogLoading(context);
             context.pop();
           },
           failure: (error) {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                icon: Icon(Icons.error, color: Colors.red),
-                content: Text(
-                  error,
-                  style: TextStyles.font15DarkBlueMedium,
-                  textAlign: TextAlign.center,
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    child: Center(
-                      child: Text(
-                        'Got it',
-                        style: TextStyles.font14BlueSemiBold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            );
+            showDialogError(context, error);
           },
           success: (success) {
             context.pop();
