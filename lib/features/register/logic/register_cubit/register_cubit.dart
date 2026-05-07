@@ -1,6 +1,5 @@
 import 'package:doc_appointment_app/core/networking/api_result.dart';
 import 'package:doc_appointment_app/features/register/data/models/register_request_body.dart';
-import 'package:doc_appointment_app/features/register/data/models/register_response.dart';
 import 'package:doc_appointment_app/features/register/data/repos/register_repo.dart';
 import 'package:doc_appointment_app/features/register/logic/register_cubit/register_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
