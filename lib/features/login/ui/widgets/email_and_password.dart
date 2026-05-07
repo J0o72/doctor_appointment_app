@@ -17,7 +17,6 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   late TextEditingController passwordController;
-  late TextEditingController emailController;
 
   bool isObscureText = true;
   bool hasEightCharacters = false;
@@ -29,7 +28,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   void initState() {
     passwordController = context.read<LoginCubit>().passwordController;
-    // emailController = TextEditingController();
     super.initState();
     setUpPasswordControllerListener();
   }
@@ -51,7 +49,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   void dispose() {
     passwordController.dispose();
-    emailController.dispose();
     super.dispose();
   }
 
