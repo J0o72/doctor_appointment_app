@@ -30,11 +30,27 @@ class _RegisterFormState extends State<RegisterForm> {
   void initState() {
     super.initState();
     passwordController = context.read<RegisterCubit>().passwordController;
+    setUpPasswordControllerListener();
+  }
+
+  void setUpPasswordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasEightCharacters = AppRegex.hasMinLength(passwordController.text);
+        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasSpecialCharacter = AppRegex.hasSpecialCharacter(
+          passwordController.text,
+        );
+      });
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
+    passwordController.dispose();
   }
 
   @override
@@ -94,23 +110,48 @@ class _RegisterFormState extends State<RegisterForm> {
               }
             },
             controller: context.read<RegisterCubit>().passwordController,
+            isObscureText: isObscureTextForPassword,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isObscureTextForPassword = !isObscureTextForPassword;
+                });
+              },
+              child: Icon(
+                color: ColorsManager.mainBlue,
+                isObscureTextForPassword
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+              ),
+            ),
           ),
           verticalSpace(20.h),
 
           AppTextFormField(
             hintText: 'Confirm Password',
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.hasLowerCase(value) ||
-                  !AppRegex.hasMinLength(value) ||
-                  !AppRegex.hasNumber(value) ||
-                  !AppRegex.hasSpecialCharacter(value) ||
-                  !AppRegex.hasUpperCase(value)) {
+              if (value == null || value.isEmpty) {
                 return 'Please Enter A Valid Password';
+              } else if (value != passwordController.text) {
+                return 'The password confirmation does not match.';
               }
             },
             controller: context.read<RegisterCubit>().confirmPasswordController,
+            isObscureText: isObscureTextForPasswordConfirmation,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isObscureTextForPasswordConfirmation =
+                      !isObscureTextForPasswordConfirmation;
+                });
+              },
+              child: Icon(
+                color: ColorsManager.mainBlue,
+                isObscureTextForPasswordConfirmation
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+              ),
+            ),
           ),
           verticalSpace(20.h),
           PasswordValidation(
