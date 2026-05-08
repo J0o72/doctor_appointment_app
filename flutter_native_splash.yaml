@@ -1,0 +1,11 @@
+flutter_native_splash:
+  #! FOR ALL PLATFORM, except Android 12+:  (IOS & Android below 12)
+
+  color: "#ffffff" ##====================================[REQUIRED]==========
+  image: assets/images/splash.png
+  fullscreen: true # default false
+
+  #! ANDROID 12+ configuration:
+  android_12:
+    color: "#ffffff"
+    image: assets/images/splash_android12_logo.png
