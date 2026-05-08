@@ -5,6 +5,7 @@ import 'package:doc_appointment_app/features/login/ui/widgets/terms_and_conditio
 import 'package:doc_appointment_app/features/register/data/models/register_request_body.dart';
 import 'package:doc_appointment_app/features/register/logic/register_cubit/register_cubit.dart';
 import 'package:doc_appointment_app/features/register/ui/widgets/already_have_account_or_login.dart';
+import 'package:doc_appointment_app/features/register/ui/widgets/register_bloc_listener.dart';
 import 'package:doc_appointment_app/features/register/ui/widgets/resigter_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +46,7 @@ class RegisterScreenBody extends StatelessWidget {
             verticalSpace(20.h),
             AlreadyHaveAnAccountOrLogin(),
             verticalSpace(20.h),
+            RegisterBlocListener(),
           ],
         ),
       ),
