@@ -18,7 +18,7 @@ class LoginScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(right: 20.h, left: 20.h, top: 40.h),
+        padding: EdgeInsets.only(right: 20.h, left: 20.h, top: 30.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
