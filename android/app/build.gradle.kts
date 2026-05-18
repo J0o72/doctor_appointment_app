@@ -36,7 +36,6 @@ android {
         }
         create("development") {
             dimension = "default"
-            applicationIdSuffix = ".dev"
             versionNameSuffix = "-dev"
             resValue(
                 type = "string",
