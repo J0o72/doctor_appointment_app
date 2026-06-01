@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:doc_appointment_app/core/networking/api_constants.dart';
+import 'package:doc_appointment_app/features/home/data/models/speciality_response_model.dart';
 import 'package:doc_appointment_app/features/login/data/models/login_request_body.dart';
 import 'package:doc_appointment_app/features/login/data/models/login_response.dart';
 import 'package:doc_appointment_app/features/register/data/models/register_request_body.dart';
@@ -20,4 +21,7 @@ abstract class ApiService {
   Future<RegisterResponse> register(
     @Body() RegisterRequestBody registerRequestBody,
   );
+
+  @GET(ApiConstants.specialityEP)
+  Future<SpecializationsResponseModel> getSpeciality();
 }
