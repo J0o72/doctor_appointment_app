@@ -1,12 +1,18 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/colors_manager.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
+import 'package:doc_appointment_app/features/home/data/models/speciality_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DoctorSpecialityListViewItem extends StatelessWidget {
-  const DoctorSpecialityListViewItem({super.key});
+  const DoctorSpecialityListViewItem({
+    super.key,
+    required this.specializationsData,
+  });
+
+  final SpecializationsData specializationsData;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,10 @@ class DoctorSpecialityListViewItem extends StatelessWidget {
             ),
           ),
           verticalSpace(10.h),
-          Text("General", style: TextStyles.font12DarkBlueRegular),
+          Text(
+            specializationsData.name ?? 'Specialization',
+            style: TextStyles.font12DarkBlueRegular,
+          ),
         ],
       ),
     );

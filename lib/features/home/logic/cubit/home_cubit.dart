@@ -20,7 +20,11 @@ class HomeCubit extends Cubit<HomeState> {
       success: (specializationsResponseModel) {
         specializationsList =
             specializationsResponseModel.specializationDataList ?? [];
-        emit(HomeState.specializationsSuccess(specializationsList));
+        emit(
+          HomeState.specializationsSuccess(
+            specializationsResponseModel.specializationDataList ?? [],
+          ),
+        );
       },
 
       failure: (failure) {

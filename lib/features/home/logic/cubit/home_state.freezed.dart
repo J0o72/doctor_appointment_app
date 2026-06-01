@@ -12,7 +12,7 @@ part of 'home_state.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$HomeState<T> {
+mixin _$HomeState {
 
 
 
@@ -20,7 +20,7 @@ mixin _$HomeState<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState);
 }
 
 
@@ -29,20 +29,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeState<$T>()';
+  return 'HomeState()';
 }
 
 
 }
 
 /// @nodoc
-class $HomeStateCopyWith<T,$Res>  {
-$HomeStateCopyWith(HomeState<T> _, $Res Function(HomeState<T>) __);
+class $HomeStateCopyWith<$Res>  {
+$HomeStateCopyWith(HomeState _, $Res Function(HomeState) __);
 }
 
 
 /// Adds pattern-matching-related methods to [HomeState].
-extension HomeStatePatterns<T> on HomeState<T> {
+extension HomeStatePatterns on HomeState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -55,7 +55,7 @@ extension HomeStatePatterns<T> on HomeState<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( SpecializationsLoading<T> value)?  specializationsLoading,TResult Function( SpecializationsSuccess<T> value)?  specializationsSuccess,TResult Function( SpecializationsFailure<T> value)?  specializationsFailure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( SpecializationsLoading value)?  specializationsLoading,TResult Function( SpecializationsSuccess value)?  specializationsSuccess,TResult Function( SpecializationsFailure value)?  specializationsFailure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -80,7 +80,7 @@ return specializationsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( SpecializationsLoading<T> value)  specializationsLoading,required TResult Function( SpecializationsSuccess<T> value)  specializationsSuccess,required TResult Function( SpecializationsFailure<T> value)  specializationsFailure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( SpecializationsLoading value)  specializationsLoading,required TResult Function( SpecializationsSuccess value)  specializationsSuccess,required TResult Function( SpecializationsFailure value)  specializationsFailure,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -104,7 +104,7 @@ return specializationsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( SpecializationsLoading<T> value)?  specializationsLoading,TResult? Function( SpecializationsSuccess<T> value)?  specializationsSuccess,TResult? Function( SpecializationsFailure<T> value)?  specializationsFailure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( SpecializationsLoading value)?  specializationsLoading,TResult? Function( SpecializationsSuccess value)?  specializationsSuccess,TResult? Function( SpecializationsFailure value)?  specializationsFailure,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -192,7 +192,7 @@ return specializationsFailure(_that.error);case _:
 /// @nodoc
 
 
-class _Initial<T> implements HomeState<T> {
+class _Initial implements HomeState {
   const _Initial();
   
 
@@ -203,7 +203,7 @@ class _Initial<T> implements HomeState<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
 }
 
 
@@ -212,7 +212,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeState<$T>.initial()';
+  return 'HomeState.initial()';
 }
 
 
@@ -224,7 +224,7 @@ String toString() {
 /// @nodoc
 
 
-class SpecializationsLoading<T> implements HomeState<T> {
+class SpecializationsLoading implements HomeState {
   const SpecializationsLoading();
   
 
@@ -235,7 +235,7 @@ class SpecializationsLoading<T> implements HomeState<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsLoading<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsLoading);
 }
 
 
@@ -244,7 +244,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomeState<$T>.specializationsLoading()';
+  return 'HomeState.specializationsLoading()';
 }
 
 
@@ -256,7 +256,7 @@ String toString() {
 /// @nodoc
 
 
-class SpecializationsSuccess<T> implements HomeState<T> {
+class SpecializationsSuccess implements HomeState {
   const SpecializationsSuccess(final  List<SpecializationsData> specializationDataList): _specializationDataList = specializationDataList;
   
 
@@ -272,13 +272,13 @@ class SpecializationsSuccess<T> implements HomeState<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SpecializationsSuccessCopyWith<T, SpecializationsSuccess<T>> get copyWith => _$SpecializationsSuccessCopyWithImpl<T, SpecializationsSuccess<T>>(this, _$identity);
+$SpecializationsSuccessCopyWith<SpecializationsSuccess> get copyWith => _$SpecializationsSuccessCopyWithImpl<SpecializationsSuccess>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsSuccess<T>&&const DeepCollectionEquality().equals(other._specializationDataList, _specializationDataList));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsSuccess&&const DeepCollectionEquality().equals(other._specializationDataList, _specializationDataList));
 }
 
 
@@ -287,15 +287,15 @@ int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(
 
 @override
 String toString() {
-  return 'HomeState<$T>.specializationsSuccess(specializationDataList: $specializationDataList)';
+  return 'HomeState.specializationsSuccess(specializationDataList: $specializationDataList)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SpecializationsSuccessCopyWith<T,$Res> implements $HomeStateCopyWith<T, $Res> {
-  factory $SpecializationsSuccessCopyWith(SpecializationsSuccess<T> value, $Res Function(SpecializationsSuccess<T>) _then) = _$SpecializationsSuccessCopyWithImpl;
+abstract mixin class $SpecializationsSuccessCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory $SpecializationsSuccessCopyWith(SpecializationsSuccess value, $Res Function(SpecializationsSuccess) _then) = _$SpecializationsSuccessCopyWithImpl;
 @useResult
 $Res call({
  List<SpecializationsData> specializationDataList
@@ -306,17 +306,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SpecializationsSuccessCopyWithImpl<T,$Res>
-    implements $SpecializationsSuccessCopyWith<T, $Res> {
+class _$SpecializationsSuccessCopyWithImpl<$Res>
+    implements $SpecializationsSuccessCopyWith<$Res> {
   _$SpecializationsSuccessCopyWithImpl(this._self, this._then);
 
-  final SpecializationsSuccess<T> _self;
-  final $Res Function(SpecializationsSuccess<T>) _then;
+  final SpecializationsSuccess _self;
+  final $Res Function(SpecializationsSuccess) _then;
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? specializationDataList = null,}) {
-  return _then(SpecializationsSuccess<T>(
+  return _then(SpecializationsSuccess(
 null == specializationDataList ? _self._specializationDataList : specializationDataList // ignore: cast_nullable_to_non_nullable
 as List<SpecializationsData>,
   ));
@@ -328,7 +328,7 @@ as List<SpecializationsData>,
 /// @nodoc
 
 
-class SpecializationsFailure<T> implements HomeState<T> {
+class SpecializationsFailure implements HomeState {
   const SpecializationsFailure({required this.error});
   
 
@@ -338,13 +338,13 @@ class SpecializationsFailure<T> implements HomeState<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SpecializationsFailureCopyWith<T, SpecializationsFailure<T>> get copyWith => _$SpecializationsFailureCopyWithImpl<T, SpecializationsFailure<T>>(this, _$identity);
+$SpecializationsFailureCopyWith<SpecializationsFailure> get copyWith => _$SpecializationsFailureCopyWithImpl<SpecializationsFailure>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsFailure<T>&&(identical(other.error, error) || other.error == error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpecializationsFailure&&(identical(other.error, error) || other.error == error));
 }
 
 
@@ -353,15 +353,15 @@ int get hashCode => Object.hash(runtimeType,error);
 
 @override
 String toString() {
-  return 'HomeState<$T>.specializationsFailure(error: $error)';
+  return 'HomeState.specializationsFailure(error: $error)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SpecializationsFailureCopyWith<T,$Res> implements $HomeStateCopyWith<T, $Res> {
-  factory $SpecializationsFailureCopyWith(SpecializationsFailure<T> value, $Res Function(SpecializationsFailure<T>) _then) = _$SpecializationsFailureCopyWithImpl;
+abstract mixin class $SpecializationsFailureCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory $SpecializationsFailureCopyWith(SpecializationsFailure value, $Res Function(SpecializationsFailure) _then) = _$SpecializationsFailureCopyWithImpl;
 @useResult
 $Res call({
  String error
@@ -372,17 +372,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SpecializationsFailureCopyWithImpl<T,$Res>
-    implements $SpecializationsFailureCopyWith<T, $Res> {
+class _$SpecializationsFailureCopyWithImpl<$Res>
+    implements $SpecializationsFailureCopyWith<$Res> {
   _$SpecializationsFailureCopyWithImpl(this._self, this._then);
 
-  final SpecializationsFailure<T> _self;
-  final $Res Function(SpecializationsFailure<T>) _then;
+  final SpecializationsFailure _self;
+  final $Res Function(SpecializationsFailure) _then;
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
-  return _then(SpecializationsFailure<T>(
+  return _then(SpecializationsFailure(
 error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as String,
   ));
