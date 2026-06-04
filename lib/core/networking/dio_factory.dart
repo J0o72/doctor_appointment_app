@@ -42,7 +42,7 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer ${SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
+          'Bearer ${SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 

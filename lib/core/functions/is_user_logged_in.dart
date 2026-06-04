@@ -4,7 +4,9 @@ import 'package:doc_appointment_app/core/helpers/shared_pref_keys.dart';
 import 'package:doc_appointment_app/core/networking/dio_factory.dart';
 
 Future<void> checkedIFLoggedInUser() async {
-  String? token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+  String? token = await SharedPrefHelper.getSecuredString(
+    SharedPrefKeys.userToken,
+  );
 
   if (token != null || token != '') {
     isLoggedInUser = true;
