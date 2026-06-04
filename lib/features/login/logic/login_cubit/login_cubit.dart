@@ -1,3 +1,5 @@
+import 'package:doc_appointment_app/core/helpers/shared_pref_helper.dart';
+import 'package:doc_appointment_app/core/helpers/shared_pref_keys.dart';
 import 'package:doc_appointment_app/core/networking/api_result.dart';
 import 'package:doc_appointment_app/features/login/data/models/login_request_body.dart';
 import 'package:doc_appointment_app/features/login/data/repos/login_repo.dart';
@@ -19,12 +21,17 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await _loginRepo.login(loginRequestBody);
 
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+        await saveUserToken(loginResponse.userData!.token.toString());
         emit(LoginState.success(loginResponse));
       },
       failure: (failure) {
         emit(LoginState.failure(error: failure.apiErrorModel.message ?? ''));
       },
     );
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
   }
 }
