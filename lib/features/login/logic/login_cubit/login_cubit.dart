@@ -1,6 +1,7 @@
 import 'package:doc_appointment_app/core/helpers/shared_pref_helper.dart';
 import 'package:doc_appointment_app/core/helpers/shared_pref_keys.dart';
 import 'package:doc_appointment_app/core/networking/api_result.dart';
+import 'package:doc_appointment_app/core/networking/dio_factory.dart';
 import 'package:doc_appointment_app/features/login/data/models/login_request_body.dart';
 import 'package:doc_appointment_app/features/login/data/repos/login_repo.dart';
 import 'package:doc_appointment_app/features/login/logic/login_cubit/login_state.dart';
@@ -33,5 +34,6 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> saveUserToken(String token) async {
     await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

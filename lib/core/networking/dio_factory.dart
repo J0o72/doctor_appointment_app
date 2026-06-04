@@ -45,4 +45,8 @@ class DioFactory {
           'Bearer ${SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
+  }
 }
