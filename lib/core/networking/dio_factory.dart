@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doc_appointment_app/core/helpers/shared_pref_helper.dart';
+import 'package:doc_appointment_app/core/helpers/shared_pref_keys.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -40,7 +42,7 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzgwMzQ3MjU5LCJleHAiOjE3ODA0MzM2NTksIm5iZiI6MTc4MDM0NzI1OSwianRpIjoidFlkaURPalhRRWdzVEhWaiIsInN1YiI6IjcwOTQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.UIxHCoZt2f_tM7e_BXz-5KKMnOEKIFiMa6bD6lvfx9I',
+          'Bearer ${SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
 }
