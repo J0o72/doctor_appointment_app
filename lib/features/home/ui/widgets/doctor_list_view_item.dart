@@ -1,10 +1,13 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
 import 'package:doc_appointment_app/core/theming/text_styles.dart';
+import 'package:doc_appointment_app/features/home/data/models/speciality_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorListViewItem extends StatelessWidget {
-  const DoctorListViewItem({super.key});
+  const DoctorListViewItem({super.key, required this.doctor});
+
+  final Doctors doctor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +28,20 @@ class DoctorListViewItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Dr Name", style: TextStyles.font18DarkBlueBold),
+              Text(
+                doctor.name ?? "Dr Name",
+                style: TextStyles.font18DarkBlueBold,
+              ),
               verticalSpace(5),
               Text(
-                "Dr Degree  |  023134556",
+                "${doctor.degree ?? "Dr Degree"}  |  ${doctor.phone ?? "Dr Phone"}",
                 style: TextStyles.font12GrayMedium,
               ),
               verticalSpace(5),
-              Text("Dr Email@dr.com", style: TextStyles.font12GrayMedium),
+              Text(
+                doctor.email ?? "Dr Email@dr.com",
+                style: TextStyles.font12GrayMedium,
+              ),
             ],
           ),
         ],
