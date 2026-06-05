@@ -12,4 +12,9 @@ class HomeState with _$HomeState {
   ) = SpecializationsSuccess;
   const factory HomeState.specializationsFailure({required String error}) =
       SpecializationsFailure;
+
+  const factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) =
+      DoctorsSuccess;
+  const factory HomeState.doctorsFailure({required String error}) =
+      DoctorsFailure;
 }
