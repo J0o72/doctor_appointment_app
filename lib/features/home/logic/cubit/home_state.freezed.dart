@@ -134,7 +134,7 @@ return doctorsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  specializationsLoading,TResult Function( List<SpecializationsData> specializationDataList)?  specializationsSuccess,TResult Function( String error)?  specializationsFailure,TResult Function( List<Doctors?>? doctorsList)?  doctorsSuccess,TResult Function( String error)?  doctorsFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  specializationsLoading,TResult Function( List<SpecializationsData> specializationDataList)?  specializationsSuccess,TResult Function( String error)?  specializationsFailure,TResult Function( List<Doctors> doctorsList)?  doctorsSuccess,TResult Function( String error)?  doctorsFailure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case SpecializationsLoading() when specializationsLoading != null:
@@ -160,7 +160,7 @@ return doctorsFailure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  specializationsLoading,required TResult Function( List<SpecializationsData> specializationDataList)  specializationsSuccess,required TResult Function( String error)  specializationsFailure,required TResult Function( List<Doctors?>? doctorsList)  doctorsSuccess,required TResult Function( String error)  doctorsFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  specializationsLoading,required TResult Function( List<SpecializationsData> specializationDataList)  specializationsSuccess,required TResult Function( String error)  specializationsFailure,required TResult Function( List<Doctors> doctorsList)  doctorsSuccess,required TResult Function( String error)  doctorsFailure,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case SpecializationsLoading():
@@ -185,7 +185,7 @@ return doctorsFailure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  specializationsLoading,TResult? Function( List<SpecializationsData> specializationDataList)?  specializationsSuccess,TResult? Function( String error)?  specializationsFailure,TResult? Function( List<Doctors?>? doctorsList)?  doctorsSuccess,TResult? Function( String error)?  doctorsFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  specializationsLoading,TResult? Function( List<SpecializationsData> specializationDataList)?  specializationsSuccess,TResult? Function( String error)?  specializationsFailure,TResult? Function( List<Doctors> doctorsList)?  doctorsSuccess,TResult? Function( String error)?  doctorsFailure,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case SpecializationsLoading() when specializationsLoading != null:
@@ -407,16 +407,14 @@ as String,
 
 
 class DoctorsSuccess implements HomeState {
-  const DoctorsSuccess(final  List<Doctors?>? doctorsList): _doctorsList = doctorsList;
+  const DoctorsSuccess(final  List<Doctors> doctorsList): _doctorsList = doctorsList;
   
 
- final  List<Doctors?>? _doctorsList;
- List<Doctors?>? get doctorsList {
-  final value = _doctorsList;
-  if (value == null) return null;
+ final  List<Doctors> _doctorsList;
+ List<Doctors> get doctorsList {
   if (_doctorsList is EqualUnmodifiableListView) return _doctorsList;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(value);
+  return EqualUnmodifiableListView(_doctorsList);
 }
 
 
@@ -450,7 +448,7 @@ abstract mixin class $DoctorsSuccessCopyWith<$Res> implements $HomeStateCopyWith
   factory $DoctorsSuccessCopyWith(DoctorsSuccess value, $Res Function(DoctorsSuccess) _then) = _$DoctorsSuccessCopyWithImpl;
 @useResult
 $Res call({
- List<Doctors?>? doctorsList
+ List<Doctors> doctorsList
 });
 
 
@@ -467,10 +465,10 @@ class _$DoctorsSuccessCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? doctorsList = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? doctorsList = null,}) {
   return _then(DoctorsSuccess(
-freezed == doctorsList ? _self._doctorsList : doctorsList // ignore: cast_nullable_to_non_nullable
-as List<Doctors?>?,
+null == doctorsList ? _self._doctorsList : doctorsList // ignore: cast_nullable_to_non_nullable
+as List<Doctors>,
   ));
 }
 

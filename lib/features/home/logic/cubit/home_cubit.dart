@@ -39,20 +39,21 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  Future<List<Doctors?>?> getDoctorsBySpecializationId(
+  Future<List<Doctors>?> getDoctorsBySpecializationId(
     int specializationId,
   ) async {
     return specializationsList
-        .firstWhere((specialization) => specialization.id == specializationId)
-        .doctorsList;
+            .firstWhere(
+              (specialization) => specialization.id == specializationId,
+            )
+            .doctorsList ??
+        [];
   }
 
   void emitDoctorsStates({required int specializationId}) async {
-    List<Doctors?>? doctorsList = await getDoctorsBySpecializationId(
-      specializationId,
-    );
+    final doctorsList = await getDoctorsBySpecializationId(specializationId);
 
-    if (doctorsList != null || doctorsList != []) {
+    if (doctorsList != null || doctorsList!.isNotEmpty) {
       emit(HomeState.doctorsSuccess(doctorsList));
     } else {
       emit(const HomeState.doctorsFailure(error: 'No doctors found'));
