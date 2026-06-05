@@ -20,6 +20,8 @@ class HomeCubit extends Cubit<HomeState> {
       success: (specializationsResponseModel) {
         specializationsList =
             specializationsResponseModel.specializationDataList ?? [];
+
+        emitDoctorsStates(specializationId: specializationsList.first.id!);
         emit(
           HomeState.specializationsSuccess(
             specializationsResponseModel.specializationDataList ?? [],
@@ -35,5 +37,25 @@ class HomeCubit extends Cubit<HomeState> {
         );
       },
     );
+  }
+
+  Future<List<Doctors?>?> getDoctorsBySpecializationId(
+    int specializationId,
+  ) async {
+    return specializationsList
+        .firstWhere((specialization) => specialization.id == specializationId)
+        .doctorsList;
+  }
+
+  void emitDoctorsStates({required int specializationId}) async {
+    List<Doctors?>? doctorsList = await getDoctorsBySpecializationId(
+      specializationId,
+    );
+
+    if (doctorsList != null || doctorsList != []) {
+      emit(HomeState.doctorsSuccess(doctorsList));
+    } else {
+      emit(const HomeState.doctorsFailure(error: 'No doctors found'));
+    }
   }
 }
