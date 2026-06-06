@@ -5,11 +5,27 @@ part 'api_error_model.g.dart';
 class ApiErrorModel {
   final String? message;
   final int? code;
+  @JsonKey(name: 'data')
+  final dynamic errors;
 
-  ApiErrorModel({required this.message, this.code});
+  ApiErrorModel({this.message, this.code, this.errors});
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
+
+  String getAllErrorMessages() {
+    if (errors == null || errors!.isEmpty) {
+      return message ?? "Unknown Error Occurred";
+    } else {
+      final errorMessage = errors!.entries
+          .map((entry) {
+            return "${entry.value.join(", ")}";
+          })
+          .join("\n");
+
+      return errorMessage;
+    }
+  }
 }

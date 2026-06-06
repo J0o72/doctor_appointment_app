@@ -23,7 +23,8 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
           },
           failure: (error) {
-            showDialogError(context, error);
+            print("Login Listener Failure");
+            showDialogError(context, error.getAllErrorMessages());
           },
           success: (success) {
             context.pop();

@@ -1,3 +1,4 @@
+import 'package:doc_appointment_app/core/networking/api_error_model.dart';
 import 'package:doc_appointment_app/features/home/data/models/speciality_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,11 +11,10 @@ class HomeState with _$HomeState {
   const factory HomeState.specializationsSuccess(
     List<SpecializationsData> specializationDataList,
   ) = SpecializationsSuccess;
-  const factory HomeState.specializationsFailure({required String error}) =
+  const factory HomeState.specializationsFailure(ApiErrorModel apiErrorModel) =
       SpecializationsFailure;
 
   const factory HomeState.doctorsSuccess(List<Doctors> doctorsList) =
       DoctorsSuccess;
-  const factory HomeState.doctorsFailure({required String error}) =
-      DoctorsFailure;
+  const factory HomeState.doctorsFailure() = DoctorsFailure;
 }

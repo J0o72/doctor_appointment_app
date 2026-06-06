@@ -17,7 +17,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
           doctorsSuccess: (doctorsList) {
             return DoctorsListView(doctorsList: doctorsList);
           },
-          doctorsFailure: (error) {
+          doctorsFailure: () {
             return SliverToBoxAdapter(child: const SizedBox.shrink());
           },
           orElse: () => SliverToBoxAdapter(child: const SizedBox.shrink()),

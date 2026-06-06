@@ -19,7 +19,7 @@ class DoctorSpecialityListView extends StatefulWidget {
 }
 
 class _DoctorSpecialityListViewState extends State<DoctorSpecialityListView> {
-  int selectedSpecializationIndex = 0;
+  var selectedSpecializationIndex = 0;
 
   @override
   Widget build(BuildContext context) {
