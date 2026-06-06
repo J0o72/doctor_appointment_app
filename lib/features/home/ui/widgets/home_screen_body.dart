@@ -1,9 +1,9 @@
 import 'package:doc_appointment_app/core/helpers/spacing.dart';
-import 'package:doc_appointment_app/features/home/ui/widgets/doctor_speciality_list_view.dart';
 import 'package:doc_appointment_app/features/home/ui/widgets/doctor_speciality_see_all.dart';
+import 'package:doc_appointment_app/features/home/ui/widgets/doctors_bloc_builder.dart';
 import 'package:doc_appointment_app/features/home/ui/widgets/doctors_blue_container.dart';
-import 'package:doc_appointment_app/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:doc_appointment_app/features/home/ui/widgets/home_top_bar.dart';
+import 'package:doc_appointment_app/features/home/ui/widgets/specialization_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,13 +26,13 @@ class HomeScreenBody extends StatelessWidget {
                 verticalSpace(20.h),
                 DoctorSpecialitySeeAll(),
                 verticalSpace(20.h),
-                DoctorSpecialityListView(),
+                SetUpSpecializationsBlocBuilder(),
                 verticalSpace(20.h),
               ],
             ),
           ),
         ),
-        DoctorsListView(),
+        DoctorsBlocBuilder(),
       ],
     );
   }

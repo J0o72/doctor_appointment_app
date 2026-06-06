@@ -27,7 +27,7 @@ class RegisterBlocListener extends StatelessWidget {
             context.pushNamed(Routes.loginScreen);
           },
           failure: (error) {
-            showDialogError(context, error);
+            showDialogError(context, error.getAllErrorMessages());
           },
         );
       },

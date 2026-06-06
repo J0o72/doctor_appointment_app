@@ -1,9 +1,12 @@
+import 'package:doc_appointment_app/features/home/data/models/speciality_response_model.dart';
 import 'package:doc_appointment_app/features/home/ui/widgets/doctor_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsListView extends StatelessWidget {
-  const DoctorsListView({super.key});
+  const DoctorsListView({super.key, required this.doctorsList});
+
+  final List<Doctors> doctorsList;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,9 @@ class DoctorsListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate((context, index) {
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: DoctorListViewItem(),
+          child: DoctorListViewItem(doctor: doctorsList[index]),
         );
-      }, childCount: 8),
+      }, childCount: doctorsList.length),
     );
   }
 }

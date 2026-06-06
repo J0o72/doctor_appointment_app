@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doc_appointment_app/core/helpers/shared_pref_helper.dart';
+import 'package:doc_appointment_app/core/helpers/shared_pref_keys.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -16,6 +18,7 @@ class DioFactory {
       dio!.options.connectTimeout = timeout;
       dio!.options.receiveTimeout = timeout;
 
+      addHeaders();
       addDioInterceptors();
 
       return dio!;
@@ -33,5 +36,17 @@ class DioFactory {
         responseHeader: true,
       ),
     );
+  }
+
+  static void addHeaders() {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
   }
 }
